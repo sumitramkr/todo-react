@@ -1,16 +1,11 @@
 import React from "react";
 import List from "./List";
+import Input from "./Input";
 
 function App() {
-  const [list, setList] = React.useState("");
   const [arrayList, setArrayList] = React.useState([]);
 
-  function handleChange(event) {
-    const values = event.target.value;
-    setList(values);
-  }
-
-  function handleClick() {
+  function handleClick(list, setList) {
     setArrayList((arrayList) => [...arrayList, list]);
     setList("");
   }
@@ -28,12 +23,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input type="text" onChange={handleChange} value={list} />
-        <button onClick={handleClick}>
-          <span>Add</span>
-        </button>
-      </div>
+      <Input click={handleClick} />
       <div>
         <ul>
           {arrayList.map((items, index) => (
