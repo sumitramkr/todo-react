@@ -1,4 +1,5 @@
 import React from "react";
+import List from "./List";
 
 function App() {
   const [list, setList] = React.useState("");
@@ -28,7 +29,7 @@ function App() {
       <div>
         <ul>
           {arrayList.map((items) => (
-            <li>{items}</li>
+            <List items={items} />
           ))}
         </ul>
       </div>
