@@ -15,6 +15,14 @@ function App() {
     setList("");
   }
 
+  function deleteItem(id) {
+    setArrayList((arrayList) => {
+      return arrayList.filter((items, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -28,8 +36,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {arrayList.map((items) => (
-            <List items={items} />
+          {arrayList.map((items, index) => (
+            <List key={index} id={index} items={items} onCheck={deleteItem} />
           ))}
         </ul>
       </div>

@@ -1,29 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 
 function List(props) {
-  const [isClicked, setIsClicked] = useState(false);
+  //   const [isClicked, setIsClicked] = useState(false);
 
-  function handleListClick() {
-    // setIsClicked(true);
-    setIsClicked((isClicked) => {
-      return !isClicked;
-    }); //allows line and unline
-  }
+  //   function handleListClick() {
 
-  //   function listCSS() {
-  //     return isClicked
-  //       ? { textDecoration: "line-through" }
-  //       : { textDecoration: "none" };
-  //   }
+  // setIsClicked((isClicked) => {
+  //   return !isClicked;
+  // }); //allows line and unline
+
+  // }
 
   return (
-    <div onClick={handleListClick}>
+    <div
+      onClick={() => {
+        props.onCheck(props.id);
+      }}
+    >
       <li
-        style={
-          isClicked
-            ? { textDecoration: "line-through" }
-            : { textDecoration: "none" }
-        }
+      // style={
+      //   isClicked
+      //     ? { textDecoration: "line-through" }
+      //     : { textDecoration: "none" }
+      // }
       >
         {props.items}
       </li>
